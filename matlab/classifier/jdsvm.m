@@ -52,5 +52,6 @@ function [predict_label,accuracy,prob_estimates] = jdsvm(x_train,y_train,x_test,
 	options = ['-c ',num2str(c_para),' -g ',num2str(g_para),' -t ',num2str(kernel_para)];
 	model = svmtrain(y_train,x_train,options);
 	[predict_label,accuracy,prob_estimates] = svmpredict(y_test,x_test,model);
+	accuracy = accuracy(1) / 100;
 
 end
